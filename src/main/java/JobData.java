@@ -97,7 +97,8 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
+        //if result !contain word, put it into the printout
+        //else do not put it into the printout
         // TODO - implement this method
         return null;
     }
