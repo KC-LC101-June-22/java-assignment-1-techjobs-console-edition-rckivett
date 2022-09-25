@@ -77,7 +77,7 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -98,8 +98,35 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> jobInfo: allJobs){
+            for (HashMap.Entry<String, String> thisJob : jobInfo.entrySet()) {
+                if (thisJob.getValue().toLowerCase().contains(value)) {
+                    if (!jobs.contains(jobInfo)) {
+                        jobs.add(jobInfo);
+                    }
+                }
+
+                //we need if the search result is found and if it's not already contained in jobInfo, add the job
+
+            }
+        }
+        return jobs;
+        //code written should have no duplicates
+
+        //as with printJobs, write code that if a new column is added to the data, your code with auto search the new
+        // column as well
+
+        //should NOT write code that calls findByColumnAndValue once for each column.  Utilize loops and collection
+        //methods as you did above
+
+        //you SHOULD read and understand findByColumnAndValue, since your code will look similar in some ways
+
+        //you'll need to call findByValue from somewhere in main.  once you find out where to call it from, you can
+        // *Run* the program again to test your code.
+
         // TODO - implement this method
-        return null;
     }
 
     /**
